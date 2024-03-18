@@ -19,8 +19,7 @@ use App\Http\Controllers\Home\WelcomeController as WelcomeController;
 */
 
 
-
-Route::get('/', [PageController::class, 'index'])->name('homepage');
+Route::get('/', [PageController::class, 'index'])->name('homePage');
 
 Route::resource('comics', ComicController::class );
 

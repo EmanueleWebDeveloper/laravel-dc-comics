@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Guest;
 
+use App\Models\dc;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = config( 'comic' );
+        $comics = dc::All();
 
         return view('pages.comicsView.index', compact('comics'));
     }

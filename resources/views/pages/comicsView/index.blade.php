@@ -5,9 +5,8 @@
 @section('main')
 <main>
     <h2>index di comics</h2>
-
-    <div class="table-responsive">
-
+    {{ dd($comics) }}
+    {{-- <div class="table-responsive">
 
         <table class="table table-primary">
             <thead>
@@ -19,24 +18,23 @@
                     <th scope="col">series</th>
                     <th scope="col">sale_date</th>
                     <th scope="col">type</th>
-                    {{-- <th scope="col">Descrizione</th> --}}
                 </tr>
             </thead>
             <tbody>
-                @foreach ($comics as $item)
+                @foreach ($comics as $comic)
                     <tr class="">
-                        <td>{{ $item['Id'] }}</td>
-                        <td>{{ $item['title'] }}</td>
-                        <td>{{ $item['description'] }}</td>
-                        <td>{{ $item['thumb'] }}</td>
-                        <td>{{ $item['series'] }}</td>
-                        <td>{{ $item['sale_date'] }}</td>
-                        <td>{{ $item['type'] }}</td>
+                        <td>{{ $comic['Id'] }}</td>
+                        <td>{{ $comic['title'] }}</td>
+                        <td>{{ $comic['description'] }}</td>
+                        <td>{{ $comic['thumb'] }}</td>
+                        <td>{{ $comic['series'] }}</td>
+                        <td>{{ $comic['sale_date'] }}</td>
+                        <td>{{ $comic['type'] }}</td>
                     </tr>
                 @endforeach
 
             </tbody>
         </table>
-    </div>
+    </div> --}}
 </main>
 @endsection
