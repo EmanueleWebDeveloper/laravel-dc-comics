@@ -8,12 +8,6 @@
 
     <div class="table-responsive">
 
-        <a
-            class="btn btn-primary"
-            href="{{}}"
-            >Crea prodotto</a
-        >
-
 
         <table class="table table-primary">
             <thead>
