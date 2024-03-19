@@ -40,8 +40,21 @@
                     <h5>Data di uscita: {{ $comic->sale_date }}</h5>
                     <h5>tipo: {{ $comic->type }}</h5>
 
-                    <a href="#" class="btn btn-primary ">Edit</a>
-                    <a href="#" class="btn btn-primary ">Delete</a>
+                    <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-primary ">Edit
+                    </a>
+
+
+                    <form action="{{ route( 'comics.destroy', $comic->id ) }}" method="POST">
+
+                        @csrf
+                        @method('Delete')
+
+                        <button
+                        type="submit"
+                        class="btn btn-danger">
+                            Delete
+                        </button>
+                    </form>
                 </div>
             </div>
         @endforeach

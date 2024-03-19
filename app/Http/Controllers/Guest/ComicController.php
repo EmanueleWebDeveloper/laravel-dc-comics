@@ -55,7 +55,8 @@ class ComicController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $comic = dc::findOrFail($id);
+        return view('pages.comicsView.edit', compact('comic'));
     }
 
     /**
@@ -63,7 +64,12 @@ class ComicController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $form_data = $request->all();
+        $comic = dc::find($id);
+        $comic->update($form_data);
+
+        return redirect()->route('comics.show', ['comic' => $comic->id]);
+
     }
 
     /**
@@ -71,6 +77,13 @@ class ComicController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $comic = dc::find($id);
+
+        if ($comic) {
+            $comic->delete();
+        }
+
+        $comics = dc::all();
+        return view('pages.comicsView.index', compact('comics'));
     }
 }
