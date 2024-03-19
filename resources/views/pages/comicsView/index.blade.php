@@ -3,38 +3,45 @@
 @section('title', 'comics index')
 
 @section('main')
-<main>
+<main class="text-center bg-dark-subtle">
     <h2>index di comics</h2>
-    {{ dd($comics) }}
-    {{-- <div class="table-responsive">
+    <style>
 
-        <table class="table table-primary">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">title</th>
-                    <th scope="col">description</th>
-                    <th scope="col">thumb</th>
-                    <th scope="col">series</th>
-                    <th scope="col">sale_date</th>
-                    <th scope="col">type</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($comics as $comic)
-                    <tr class="">
-                        <td>{{ $comic['Id'] }}</td>
-                        <td>{{ $comic['title'] }}</td>
-                        <td>{{ $comic['description'] }}</td>
-                        <td>{{ $comic['thumb'] }}</td>
-                        <td>{{ $comic['series'] }}</td>
-                        <td>{{ $comic['sale_date'] }}</td>
-                        <td>{{ $comic['type'] }}</td>
-                    </tr>
-                @endforeach
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0 -10px;
+        }
+        .card {
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            flex-basis: calc(20% - 20px);
+        }
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+        }
 
-            </tbody>
-        </table>
-    </div> --}}
+    </style>
+    <div class="card-container p-5">
+        @foreach ($comics as $comic)
+            <div class="card text-start">
+                <img src="{{ $comic->thumb }}" class="card-img-top" alt="...">
+                <div class="card-body p-3">
+                    <h6>id:{{ $comic->id }}</h6>
+                    <h3 class="card-title">Titolo:{{ $comic->title }}</h3>
+                    <h4>Tipo: {{ $comic->series }}</h4>
+                    <h5>Data di uscita: {{ $comic->sale_date }}</h5>
+                    <h5>tipo: {{ $comic->type }}</h5>
+
+                    <a href="#" class="btn btn-primary ">Edit</a>
+                    <a href="#" class="btn btn-primary ">Delete</a>
+                </div>
+            </div>
+        @endforeach
+    </div>
 </main>
 @endsection
