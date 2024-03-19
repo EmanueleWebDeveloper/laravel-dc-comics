@@ -4,7 +4,7 @@
 
 @section('main')
 <main class="text-center bg-dark-subtle">
-    <h2>index di comics</h2>
+    <h2>HOME comics</h2>
     <style>
 
         .card-container {
@@ -26,13 +26,16 @@
         }
 
     </style>
+        <a href="{{route('comics.create') }}" class="btn btn-primary">Crea Fumetto</a>
+
     <div class="card-container p-5">
         @foreach ($comics as $comic)
             <div class="card text-start">
                 <img src="{{ $comic->thumb }}" class="card-img-top" alt="...">
                 <div class="card-body p-3">
                     <h6>id:{{ $comic->id }}</h6>
-                    <h3 class="card-title">Titolo:{{ $comic->title }}</h3>
+                    <a href="{{ route('comics.show', $comic->id) }}">Titolo:{{ $comic->title }}</a>
+
                     <h4>Tipo: {{ $comic->series }}</h4>
                     <h5>Data di uscita: {{ $comic->sale_date }}</h5>
                     <h5>tipo: {{ $comic->type }}</h5>

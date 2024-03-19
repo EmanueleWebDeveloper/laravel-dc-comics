@@ -5,8 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class dc extends Model
+class Dc extends Model
 {
     use HasFactory;
-    protected $table='dc';
+
+    protected $table = 'dc';
+
+    protected $fillable = [
+        'title',
+        'description',
+        'series',
+        'type',
+        'price',
+        'thumb',
+        'sale_date',
+    ];
 }
