@@ -7,11 +7,21 @@
     <div class="container-1">
         <div class="current-series">ADD A NEW COMIC:</div>
 
+        @if ($errors->any())
+   <div class="alert alert-danger">
+       <ul>
+           @foreach ($errors->all() as $error)
+               <li>{{ $error }}</li>
+           @endforeach
+       </ul>
+   </div>
+@endif
         <form action="{{route('comics.store')}}" method="POST">
 
             @csrf
 
             <input type="text" name="title" id="title" placeholder="Insert The Title:">
+
             <input type="textarea" name="description" id="description" placeholder="Insert The Description:">
             <input type="text" name="thumb" id="thumb" placeholder="Insert The Comic Thumb:">
             <input type="number" name="price" id="price" placeholder="Insert The Price:" min="0">
